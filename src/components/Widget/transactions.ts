@@ -1,5 +1,5 @@
-import { Trade } from '@pollum-io/router-sdk'
-import { Currency, Percent } from '@pollum-io/sdk-core'
+import { Trade } from 'routersdk18'
+import { Currency, Percent } from 'sdkcore18'
 import {
   OnTxSuccess,
   TradeType,

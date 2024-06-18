@@ -1,4 +1,4 @@
-import { CurrencyAmount, Token } from '@pollum-io/sdk-core'
+import { CurrencyAmount, Token } from 'sdkcore18'
 import { PERMIT2_ADDRESS } from '@uniswap/permit2-sdk'
 import { useWeb3React } from '@web3-react/core'
 import { AVERAGE_L1_BLOCK_TIME } from 'constants/chainInfo'

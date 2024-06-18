@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro'
-import { Currency } from '@pollum-io/sdk-core'
+import { Currency } from 'sdkcore18'
 import { ExpandIcon } from 'components/AccountDrawer/MiniPortfolio/ExpandoRow'
 import DoubleCurrencyLogo from 'components/DoubleLogo'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'

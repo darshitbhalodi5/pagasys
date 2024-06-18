@@ -1,5 +1,5 @@
-import { Price, Token } from '@pollum-io/sdk-core'
-import { tickToPrice } from '@pollum-io/v3-sdk'
+import { Price, Token } from 'sdkcore18'
+import { tickToPrice } from 'v3sdk18'
 
 export function getTickToPrice(baseToken?: Token, quoteToken?: Token, tick?: number): Price<Token, Token> | undefined {
   if (!baseToken || !quoteToken || typeof tick !== 'number') {

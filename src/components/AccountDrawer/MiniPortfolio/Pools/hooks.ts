@@ -1,5 +1,5 @@
-import { Token } from '@pollum-io/sdk-core'
-import { AddressMap, ChainId } from '@pollum-io/smart-order-router'
+import { Token } from 'sdkcore18'
+import { AddressMap, ChainId } from 'smartorderrouter18'
 import MulticallABI from '@pollum-io/v3-periphery/artifacts/contracts/lens/PegasysInterfaceMulticall.sol/PegasysInterfaceMulticall.json'
 import NFTPositionManagerABI from '@pollum-io/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
 import { useWeb3React } from '@web3-react/core'

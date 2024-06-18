@@ -1,4 +1,4 @@
-import { Token } from '@pollum-io/sdk-core'
+import { Token } from 'sdkcore18'
 import uriToHttp from 'lib/utils/uriToHttp'
 import Vibrant from 'node-vibrant/lib/bundle.js'
 import { shade } from 'polished'

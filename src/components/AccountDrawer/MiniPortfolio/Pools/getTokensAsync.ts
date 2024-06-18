@@ -1,5 +1,5 @@
-import { Token } from '@pollum-io/sdk-core'
-import { ChainId } from '@pollum-io/smart-order-router'
+import { Token } from 'sdkcore18'
+import { ChainId } from 'smartorderrouter18'
 import ERC20_ABI from 'abis/erc20.json'
 import { Erc20Interface } from 'abis/types/Erc20'
 import { Erc20Bytes32Interface } from 'abis/types/Erc20Bytes32'

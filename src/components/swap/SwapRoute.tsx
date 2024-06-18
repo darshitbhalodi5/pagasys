@@ -1,8 +1,4 @@
 import { Trans } from '@lingui/macro'
-import { Protocol } from '@pollum-io/router-sdk'
-import { Currency, Percent, TradeType } from '@pollum-io/sdk-core'
-import { Pair } from '@pollum-io/v1-sdk'
-import { FeeAmount } from '@pollum-io/v3-sdk'
 import { useWeb3React } from '@web3-react/core'
 import AnimatedDropdown from 'components/AnimatedDropdown'
 import { AutoColumn } from 'components/Column'
@@ -13,10 +9,14 @@ import { SUPPORTED_GAS_ESTIMATE_CHAIN_IDS } from 'constants/chains'
 import useAutoRouterSupported from 'hooks/useAutoRouterSupported'
 import { memo, useState } from 'react'
 import { Plus } from 'react-feather'
+import { Protocol } from 'routersdk18'
+import { Currency, Percent, TradeType } from 'sdkcore18'
 import { InterfaceTrade } from 'state/routing/types'
 import styled from 'styled-components/macro'
 import { Separator, ThemedText } from 'theme'
 import { useDarkModeManager } from 'theme/components/ThemeToggle'
+// import { Pair } from '@pollum-io/v1-sdk'
+import { FeeAmount } from 'v3sdk18'
 
 import { AutoRouterLabel, AutoRouterLogo } from './RouterLabel'
 
@@ -133,11 +133,7 @@ export function getTokenPath(trade: InterfaceTrade<Currency, Currency, TradeType
       const nextPool = pools[i]
       const tokenIn = tokenPath[i]
       const tokenOut = tokenPath[i + 1]
-      const entry: RoutingDiagramEntry['path'][0] = [
-        tokenIn,
-        tokenOut,
-        nextPool instanceof Pair ? V2_DEFAULT_FEE_TIER : nextPool.fee,
-      ]
+      const entry: RoutingDiagramEntry['path'][0] = [tokenIn, tokenOut, nextPool.fee]
       path.push(entry)
     }
     return {

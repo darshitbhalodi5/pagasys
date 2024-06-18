@@ -1,4 +1,4 @@
-import { ChainId } from '@pollum-io/smart-order-router'
+import { ChainId } from 'smartorderrouter18'
 import { MouseoverTooltip } from 'components/Tooltip'
 import { useNftGraphqlEnabled } from 'featureFlags/flags/nftlGraphql'
 import { NftActivityType, OrderStatus } from 'graphql/data/__generated__/types-and-hooks'

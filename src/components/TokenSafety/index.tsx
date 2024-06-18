@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro'
-import { Token } from '@pollum-io/sdk-core'
+import { Token } from 'sdkcore18'
 import { ButtonPrimary } from 'components/Button'
 import { AutoColumn } from 'components/Column'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'

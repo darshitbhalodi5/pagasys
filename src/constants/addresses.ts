@@ -1,7 +1,7 @@
-import { FACTORY_ADDRESS_MAP as V2_FACTORY_ADDRESS } from '@pollum-io/v1-sdk'
+// import { FACTORY_ADDRESS_MAP as V2_FACTORY_ADDRESS } from '@pollum-io/v1-sdk'
 // import { FACTORY_ADDRESS as V2_FACTORY_ADDRESS } from '@pollum-io/v1-sdk'
-import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from '@pollum-io/v3-sdk'
 import { SupportedChainId } from 'constants/chains'
+import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from 'v3sdk18'
 
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
 
@@ -20,10 +20,10 @@ export const UNISWAP_NFT_AIRDROP_CLAIM_ADDRESS = '0x8B799381ac40b838BBA4131ffB26
 //   [SupportedChainId.ROLLUX]: '0x14264CD8fb5F95d551C20E07C738a9281737290c',
 // }
 
-export const V2_FACTORY_ADDRESSES: AddressMap = {
-  [SupportedChainId.ROLLUX_TANENBAUM]: V2_FACTORY_ADDRESS[SupportedChainId.ROLLUX_TANENBAUM],
-  [SupportedChainId.ROLLUX]: V2_FACTORY_ADDRESS[SupportedChainId.ROLLUX],
-}
+// export const V2_FACTORY_ADDRESSES: AddressMap = {
+//   [SupportedChainId.ROLLUX_TANENBAUM]: V2_FACTORY_ADDRESS[SupportedChainId.ROLLUX_TANENBAUM],
+//   [SupportedChainId.ROLLUX]: V2_FACTORY_ADDRESS[SupportedChainId.ROLLUX],
+// }
 
 export const V2_ROUTER_ADDRESS: AddressMap = {
   [SupportedChainId.ROLLUX_TANENBAUM]: '0x29f7Ad37EC018a9eA97D4b3fEebc573b5635fA84',

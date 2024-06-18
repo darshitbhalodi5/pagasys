@@ -1,4 +1,4 @@
-import { Token } from '@pollum-io/sdk-core'
+import { Token } from 'sdkcore18'
 import { formatNumber } from '@uniswap/conedison/format'
 import { CallState } from '@uniswap/redux-multicall'
 import { TokenList } from '@uniswap/token-lists'

@@ -1,7 +1,7 @@
 import { Contract } from '@ethersproject/contracts'
 import IPegasysPairJson from '@pollum-io/pegasys-protocol/artifacts/contracts/pegasys-core/interfaces/IPegasysPair.sol/IPegasysPair.json'
 import IPegasysRouterJson from '@pollum-io/pegasys-protocol/artifacts/contracts/pegasys-periphery/interfaces/IPegasysRouter.sol/IPegasysRouter.json'
-import { ChainId } from '@pollum-io/smart-order-router'
+import { ChainId } from 'smartorderrouter18'
 import QuoterV2Json from '@pollum-io/swap-router-contracts/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json'
 import PegasysInterfaceMulticallJson from '@pollum-io/v3-periphery/artifacts/contracts/lens/PegasysInterfaceMulticall.sol/PegasysInterfaceMulticall.json'
 import QuoterJson from '@pollum-io/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json'

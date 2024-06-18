@@ -1,12 +1,13 @@
 import { Interface } from '@ethersproject/abi'
 import STAKING_REWARDS_ABI from '@pollum-io/pegasys-protocol/artifacts/contracts/earn/StakingRewards.sol/StakingRewards.json'
-import { CurrencyAmount, Token } from '@pollum-io/sdk-core'
-import { Pair } from '@pollum-io/v1-sdk'
+// import { Pair } from '@pollum-io/v1-sdk'
 import { useWeb3React } from '@web3-react/core'
 import useCurrentBlockTimestamp from 'hooks/useCurrentBlockTimestamp'
 import JSBI from 'jsbi'
 import { NEVER_RELOAD, useMultipleContractSingleData } from 'lib/hooks/multicall'
 import { useMemo } from 'react'
+import { CurrencyAmount, Token } from 'sdkcore18'
+import { Pool } from 'v3sdk18'
 
 import { UNI } from '../../constants/tokens'
 
@@ -69,7 +70,7 @@ interface StakingInfo {
 }
 
 // gets the staking info from the network for the active chain id
-export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
+export function useStakingInfo(pairToFilterBy?: Pool | null): StakingInfo[] {
   const { chainId, account } = useWeb3React()
 
   // detect if staking is ended
@@ -154,22 +155,22 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
         }
 
         // get the LP token
-        const tokens = info[index].tokens
-        const dummyPair = new Pair(
-          CurrencyAmount.fromRawAmount(tokens[0], '0'),
-          CurrencyAmount.fromRawAmount(tokens[1], '0')
-        )
+        // const tokens = info[index].tokens
+        // const dummyPair = new Pair(
+        //   CurrencyAmount.fromRawAmount(tokens[0], '0'),
+        //   CurrencyAmount.fromRawAmount(tokens[1], '0')
+        // )
 
         // check for account, if no account set to 0
 
-        const stakedAmount = CurrencyAmount.fromRawAmount(
-          dummyPair.liquidityToken,
-          JSBI.BigInt(balanceState?.result?.[0] ?? 0)
-        )
-        const totalStakedAmount = CurrencyAmount.fromRawAmount(
-          dummyPair.liquidityToken,
-          JSBI.BigInt(totalSupplyState.result?.[0])
-        )
+        // const stakedAmount = CurrencyAmount.fromRawAmount(
+        //   dummyPair.liquidityToken,
+        //   JSBI.BigInt(balanceState?.result?.[0] ?? 0)
+        // )
+        // const totalStakedAmount = CurrencyAmount.fromRawAmount(
+        //   dummyPair.liquidityToken,
+        //   JSBI.BigInt(totalSupplyState.result?.[0])
+        // )
         const totalRewardRate = CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(rewardRateState.result?.[0]))
 
         const getHypotheticalRewardRate = (
@@ -185,7 +186,7 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
           )
         }
 
-        const individualRewardRate = getHypotheticalRewardRate(stakedAmount, totalStakedAmount, totalRewardRate)
+        // const individualRewardRate = getHypotheticalRewardRate(stakedAmount, totalStakedAmount, totalRewardRate)
 
         const periodFinishSeconds = periodFinishState.result?.[0]?.toNumber()
         const periodFinishMs = periodFinishSeconds * 1000
@@ -199,10 +200,10 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
           tokens: info[index].tokens,
           periodFinish: periodFinishMs > 0 ? new Date(periodFinishMs) : undefined,
           earnedAmount: CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
-          rewardRate: individualRewardRate,
+          // rewardRate: individualRewardRate,
           totalRewardRate,
-          stakedAmount,
-          totalStakedAmount,
+          // stakedAmount,
+          // totalStakedAmount,
           getHypotheticalRewardRate,
           active,
         })

@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro'
-import { ChainId } from '@pollum-io/smart-order-router'
+import { ChainId } from 'smartorderrouter18'
 import { getChainInfo } from 'constants/chainInfo'
 import { darken } from 'polished'
 import { useState } from 'react'

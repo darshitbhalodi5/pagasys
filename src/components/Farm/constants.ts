@@ -1,13 +1,13 @@
-// import { Price } from '@pollum-io/sdk-core'
-import { Currency, Price, Token } from '@pollum-io/sdk-core'
-import { ChainId } from '@pollum-io/smart-order-router'
-import { Pair } from '@pollum-io/v1-sdk'
+// import { Price } from 'sdkcore18'
+// import { Pair } from '@pollum-io/v1-sdk'
 import { TokenList } from '@uniswap/token-lists'
 import { BigNumber } from 'ethers/lib/ethers'
 import { TokenAmount } from 'graphql/utils/types'
+import { Currency, Price, Token } from 'sdkcore18'
+import { ChainId } from 'smartorderrouter18'
 import { WrappedTokenInfo } from 'state/lists/wrappedTokenInfo'
 import { Presets } from 'state/mint/v3/reducer'
-
+import { Pool } from 'v3sdk18'
 interface CommonStakingInfo {
   // the address of the reward contract
   stakingRewardAddress: string
@@ -29,7 +29,7 @@ interface CommonStakingInfo {
   perMonthReturnInRewards?: number
   totalSupply?: TokenAmount
   usdPrice?: Price<Currency, Currency>
-  stakingTokenPair?: Pair | null
+  stakingTokenPair?: Pool | null
   sponsored: boolean
   sponsorLink: string
 }

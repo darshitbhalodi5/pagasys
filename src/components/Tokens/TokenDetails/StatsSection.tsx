@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro'
-import { ChainId } from '@pollum-io/smart-order-router'
+import { ChainId } from 'smartorderrouter18'
 import { formatNumber, NumberType } from '@uniswap/conedison/format'
 import { MouseoverTooltip } from 'components/Tooltip'
 import { ReactNode } from 'react'

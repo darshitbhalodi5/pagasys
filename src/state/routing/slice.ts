@@ -1,5 +1,5 @@
-import { Protocol } from '@pollum-io/router-sdk'
-import { AlphaRouter, ChainId } from '@pollum-io/smart-order-router'
+import { Protocol } from 'routersdk18'
+import { AlphaRouter, ChainId } from 'smartorderrouter18'
 import { createApi, fetchBaseQuery, FetchBaseQueryError } from '@reduxjs/toolkit/query/react'
 import { RPC_PROVIDERS } from 'constants/providers'
 import { getClientSideQuote, toSupportedChainId } from 'lib/hooks/routing/clientSideSmartOrderRouter'

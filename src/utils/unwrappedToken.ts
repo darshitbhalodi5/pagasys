@@ -1,4 +1,4 @@
-import { Currency } from '@pollum-io/sdk-core'
+import { Currency } from 'sdkcore18'
 
 import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from '../constants/tokens'
 import { supportedChainId } from './supportedChainId'

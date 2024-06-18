@@ -1,5 +1,5 @@
-import { Trade } from '@pollum-io/router-sdk'
-import { Currency, TradeType } from '@pollum-io/sdk-core'
+import { Trade } from 'routersdk18'
+import { Currency, TradeType } from 'sdkcore18'
 
 /**
  * Returns true if the trade requires a confirmation of details before we can submit it

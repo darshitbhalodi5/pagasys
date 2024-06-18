@@ -1,7 +1,7 @@
-import { MixedRouteSDK, Trade } from '@pollum-io/router-sdk'
-import { Currency, CurrencyAmount, Token, TradeType } from '@pollum-io/sdk-core'
-import { Route as V2Route } from '@pollum-io/v1-sdk'
-import { Route as V3Route } from '@pollum-io/v3-sdk'
+import { MixedRouteSDK, Trade } from 'routersdk18'
+import { Currency, CurrencyAmount, Token, TradeType } from 'sdkcore18'
+// import { Route as V2Route } from '@pollum-io/v1-sdk'
+import { Route as V3Route } from 'v3sdk18'
 
 export enum TradeState {
   LOADING,
@@ -30,24 +30,24 @@ export type V3PoolInRoute = {
   address?: string
 }
 
-type V2Reserve = {
-  token: TokenInRoute
-  quotient: string
-}
+// type V2Reserve = {
+//   token: TokenInRoute
+//   quotient: string
+// }
 
-export type V2PoolInRoute = {
-  type: 'v2-pool'
-  tokenIn: TokenInRoute
-  tokenOut: TokenInRoute
-  reserve0: V2Reserve
-  reserve1: V2Reserve
-  amountIn?: string
-  amountOut?: string
+// export type V2PoolInRoute = {
+//   type: 'v2-pool'
+//   tokenIn: TokenInRoute
+//   tokenOut: TokenInRoute
+//   reserve0: V2Reserve
+//   reserve1: V2Reserve
+//   amountIn?: string
+//   amountOut?: string
 
-  // not used in the interface
-  // avoid returning it from the client-side smart-order-router
-  address?: string
-}
+//   // not used in the interface
+//   // avoid returning it from the client-side smart-order-router
+//   address?: string
+// }
 
 export interface GetQuoteResult {
   quoteId?: string
@@ -64,7 +64,7 @@ export interface GetQuoteResult {
   quoteDecimals: string
   quoteGasAdjusted: string
   quoteGasAdjustedDecimals: string
-  route: Array<(V3PoolInRoute | V2PoolInRoute)[]>
+  route: V3PoolInRoute
   routeString: string
 }
 
@@ -83,11 +83,11 @@ export class InterfaceTrade<
   }: {
     gasUseEstimateUSD?: CurrencyAmount<Token> | null
     blockNumber?: string | null
-    v1Routes: {
-      routev1: V2Route<TInput, TOutput>
-      inputAmount: CurrencyAmount<TInput>
-      outputAmount: CurrencyAmount<TOutput>
-    }[]
+    // v1Routes: {
+    //   // routev1: V2Rout/e<TInput, TOutput>
+    //   inputAmount: CurrencyAmount<TInput>
+    //   outputAmount: CurrencyAmount<TOutput>
+    // }[]
     v3Routes: {
       routev3: V3Route<TInput, TOutput>
       inputAmount: CurrencyAmount<TInput>

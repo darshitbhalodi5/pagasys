@@ -1,6 +1,6 @@
 import { Trans } from '@lingui/macro'
-import { Currency, CurrencyAmount, Percent } from '@pollum-io/sdk-core'
-import { Position } from '@pollum-io/v3-sdk'
+import { Currency, CurrencyAmount, Percent } from 'sdkcore18'
+import { Position } from 'v3sdk18'
 import { useWeb3React } from '@web3-react/core'
 import { useToken } from 'hooks/Tokens'
 import { usePool } from 'hooks/usePools'

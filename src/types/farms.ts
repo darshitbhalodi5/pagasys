@@ -1,4 +1,4 @@
-import { Token } from '@pollum-io/sdk-core'
+import { Token } from 'sdkcore18'
 import { Version } from '@uniswap/token-lists'
 
 export interface FarmListInfo {

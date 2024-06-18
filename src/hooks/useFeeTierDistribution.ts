@@ -1,5 +1,5 @@
-import { Currency, Token } from '@pollum-io/sdk-core'
-import { FeeAmount } from '@pollum-io/v3-sdk'
+import { Currency, Token } from 'sdkcore18'
+import { FeeAmount } from 'v3sdk18'
 import useBlockNumber from 'lib/hooks/useBlockNumber'
 import ms from 'ms.macro'
 import { useMemo } from 'react'

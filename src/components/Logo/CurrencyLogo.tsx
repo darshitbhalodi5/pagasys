@@ -1,4 +1,4 @@
-import { Currency } from '@pollum-io/sdk-core'
+import { Currency } from 'sdkcore18'
 import { TokenInfo } from '@uniswap/token-lists'
 import { useMemo } from 'react'
 

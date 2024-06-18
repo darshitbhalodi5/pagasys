@@ -1,6 +1,6 @@
 import { Trans } from '@lingui/macro'
-import { Currency } from '@pollum-io/sdk-core'
-import { ChainId } from '@pollum-io/smart-order-router'
+import { Currency } from 'sdkcore18'
+import { ChainId } from 'smartorderrouter18'
 import { formatCurrencyAmount, NumberType } from '@uniswap/conedison/format'
 import { useWeb3React } from '@web3-react/core'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'

@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { Trans } from '@lingui/macro'
-import { CurrencyAmount, Fraction, Token } from '@pollum-io/sdk-core'
+import { CurrencyAmount, Fraction, Token } from 'sdkcore18'
 import { useWeb3React } from '@web3-react/core'
 import ExecuteModal from 'components/vote/ExecuteModal'
 import QueueModal from 'components/vote/QueueModal'

@@ -1,5 +1,5 @@
-import { Trade } from '@pollum-io/router-sdk'
-import { Currency, CurrencyAmount, Percent, Price, Token, TradeType } from '@pollum-io/sdk-core'
+import { Trade } from 'routersdk18'
+import { Currency, CurrencyAmount, Percent, Price, Token, TradeType } from 'sdkcore18'
 import { NATIVE_CHAIN_ID } from 'constants/tokens'
 import { InterfaceTrade } from 'state/routing/types'
 import { computeRealizedPriceImpact } from 'utils/prices'

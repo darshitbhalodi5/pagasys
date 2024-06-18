@@ -1,8 +1,8 @@
-import { Trade } from '@pollum-io/router-sdk'
-import { CurrencyAmount, Percent, Token, TradeType } from '@pollum-io/sdk-core'
-import { Pair, Route as V2Route } from '@pollum-io/v1-sdk'
-import { FeeAmount, Pool, Route as V3Route } from '@pollum-io/v3-sdk'
 import JSBI from 'jsbi'
+import { Trade } from 'routersdk18'
+import { CurrencyAmount, Percent, Token, TradeType } from 'sdkcore18'
+// import { Pair, Route as V2Route } from '@pollum-io/v1-sdk'
+import { FeeAmount, Pool, Route as V3Route } from 'v3sdk18'
 
 import { computeRealizedLPFeeAmount, warningSeverity } from './prices'
 

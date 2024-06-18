@@ -1,4 +1,4 @@
-import { Token } from '@pollum-io/sdk-core'
+import { Token } from 'sdkcore18'
 
 import { tryParsePrice } from './utils'
 

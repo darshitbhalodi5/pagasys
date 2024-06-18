@@ -1,6 +1,6 @@
 // import { ChainId } from '@uniswap/sdk'
 // import { Token } from '@uniswap/sdk'
-// import { ChainId } from '@pollum-io/smart-order-router'
+// import { ChainId } from 'smartorderrouter18'
 import { FarmingType } from 'components/Farm/constants'
 // import { useDefaultActiveTokens } from 'hooks/Tokens'
 // import { GlobalValue } from 'constants/index'

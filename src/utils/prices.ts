@@ -1,9 +1,9 @@
-import { Trade } from '@pollum-io/router-sdk'
-import { Currency, CurrencyAmount, Fraction, Percent, TradeType } from '@pollum-io/sdk-core'
-import { Pair } from '@pollum-io/v1-sdk'
-import { FeeAmount } from '@pollum-io/v3-sdk'
 import JSBI from 'jsbi'
+import Pool from 'pages/Pool'
+import { Trade } from 'routersdk18'
+import { Currency, CurrencyAmount, Fraction, Percent, TradeType } from 'sdkcore18'
 
+// import { Pair } from '@pollum-io/v1-sdk'
 import {
   ALLOWED_PRICE_IMPACT_HIGH,
   ALLOWED_PRICE_IMPACT_LOW,
@@ -26,7 +26,7 @@ function computeRealizedLPFeePercent(trade: Trade<Currency, Currency, TradeType>
   let percent: Percent
 
   // Since routes are either all v2 or all v3 right now, calculate separately
-  if (trade.swaps[0].route.pools instanceof Pair) {
+  if (trade.swaps[0].route.pools instanceof Pool) {
     // for each hop in our trade, take away the x*y=k price impact from 0.3% fees
     // e.g. for 3 tokens/2 hops: 1 - ((1 - .03) * (1-.03))
     percent = ONE_HUNDRED_PERCENT.subtract(
@@ -44,11 +44,11 @@ function computeRealizedLPFeePercent(trade: Trade<Currency, Currency, TradeType>
       const routeRealizedLPFeePercent = overallPercent.multiply(
         ONE_HUNDRED_PERCENT.subtract(
           swap.route.pools.reduce<Percent>((currentFee: Percent, pool): Percent => {
-            const fee =
-              pool instanceof Pair
-                ? // not currently possible given protocol check above, but not fatal
-                  FeeAmount.MEDIUM
-                : pool.fee
+            const fee = pool.fee
+            //  instanceof Pair
+            //   ? // not currently possible given protocol check above, but not fatal
+            //     FeeAmount.MEDIUM
+            //   : pool.fee
             return currentFee.multiply(ONE_HUNDRED_PERCENT.subtract(new Fraction(fee, 1_000_000)))
           }, ONE_HUNDRED_PERCENT)
         )

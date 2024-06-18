@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro'
-import { Currency, Percent, TradeType } from '@pollum-io/sdk-core'
+import { Currency, Percent, TradeType } from 'sdkcore18'
 import { useUSDPrice } from 'hooks/useUSDPrice'
 import { getPriceUpdateBasisPoints } from 'lib/utils/analytics'
 import { useEffect, useState } from 'react'

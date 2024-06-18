@@ -1,4 +1,4 @@
-import { CurrencyAmount, Token } from '@pollum-io/sdk-core'
+import { CurrencyAmount, Token } from 'sdkcore18'
 
 import { PermitInfo, PermitType, useERC20Permit } from './useERC20Permit'
 import useTransactionDeadline from './useTransactionDeadline'

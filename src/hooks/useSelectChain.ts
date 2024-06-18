@@ -1,4 +1,4 @@
-import { ChainId } from '@pollum-io/smart-order-router'
+import { ChainId } from 'smartorderrouter18'
 import { useWeb3React } from '@web3-react/core'
 import { useGetConnection } from 'connection'
 import { useCallback } from 'react'

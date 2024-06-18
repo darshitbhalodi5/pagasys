@@ -1,4 +1,4 @@
-import { SupportedChainId as SdkSupportedChainId } from '@pollum-io/sdk-core'
+import { SupportedChainId as SdkSupportedChainId } from 'sdkcore18'
 import { SupportedChainId } from 'constants/chains'
 
 import { ALL_SUPPORTED_CHAIN_IDS } from './chains'

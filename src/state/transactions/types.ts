@@ -1,4 +1,4 @@
-import { TradeType } from '@pollum-io/sdk-core'
+import { TradeType } from 'sdkcore18'
 
 import { VoteOption } from '../governance/types'
 

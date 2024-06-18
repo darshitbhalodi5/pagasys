@@ -1,9 +1,9 @@
-import { MixedRouteSDK, Protocol } from '@pollum-io/router-sdk'
-import { Currency, CurrencyAmount, Token, TradeType } from '@pollum-io/sdk-core'
-import { Pair, Route as V2Route } from '@pollum-io/v1-sdk'
-import { FeeAmount, Pool, Route as V3Route } from '@pollum-io/v3-sdk'
+import { MixedRouteSDK, Protocol } from 'routersdk18'
+import { Currency, CurrencyAmount, Token, TradeType } from 'sdkcore18'
+// import { Pair, Route as V2Route } from '@pollum-io/v1-sdk'
+import { FeeAmount, Pool, Route as V3Route } from 'v3sdk18'
 
-import { GetQuoteResult, InterfaceTrade, V2PoolInRoute, V3PoolInRoute } from './types'
+import { GetQuoteResult, InterfaceTrade, V3PoolInRoute } from './types'
 
 /**
  * Transforms a Routing API quote into an array of routes that can be used to create

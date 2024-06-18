@@ -1,20 +1,19 @@
-import { Percent, Token } from '@pollum-io/sdk-core'
-import { computePairAddress, Pair } from '@pollum-io/v1-sdk'
+// import { computePairAddress, Pair } from '@pollum-io/v1-sdk'
 import { useWeb3React } from '@web3-react/core'
 import { L2_CHAIN_IDS } from 'constants/chains'
 import { SupportedLocale } from 'constants/locales'
 import { L2_DEADLINE_FROM_NOW } from 'constants/misc'
 import JSBI from 'jsbi'
 import { useCallback, useMemo } from 'react'
+import { Percent, Token } from 'sdkcore18'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
 import { UserAddedToken } from 'types/tokens'
 
-import { V2_FACTORY_ADDRESSES } from '../../constants/addresses'
+// import { V2_FACTORY_ADDRESSES } from '../../constants/addresses'
 import { BASES_TO_TRACK_LIQUIDITY_FOR, PINNED_PAIRS } from '../../constants/routing'
 import { useDefaultActiveTokens } from '../../hooks/Tokens'
 import { AppState } from '../types'
 import {
-  addSerializedPair,
   addSerializedToken,
   updateHideClosedPositions,
   updateHideUniswapWalletBanner,
@@ -25,7 +24,7 @@ import {
   updateUserLocale,
   updateUserSlippageTolerance,
 } from './reducer'
-import { SerializedPair, SerializedToken } from './types'
+import { SerializedToken } from './types'
 
 export function serializeToken(token: Token): SerializedToken {
   return {
@@ -214,23 +213,23 @@ export function useUserAddedTokens(): Token[] {
   return useUserAddedTokensOnChain(useWeb3React().chainId)
 }
 
-function serializePair(pair: Pair): SerializedPair {
-  return {
-    token0: serializeToken(pair.token0),
-    token1: serializeToken(pair.token1),
-  }
-}
+// function serializePair(pair: Pair): SerializedPair {
+//   return {
+//     token0: serializeToken(pair.token0),
+//     token1: serializeToken(pair.token1),
+//   }
+// }
 
-export function usePairAdder(): (pair: Pair) => void {
-  const dispatch = useAppDispatch()
+// export function usePairAdder(): (pair: Pair) => void {
+//   const dispatch = useAppDispatch()
 
-  return useCallback(
-    (pair: Pair) => {
-      dispatch(addSerializedPair({ serializedPair: serializePair(pair) }))
-    },
-    [dispatch]
-  )
-}
+//   return useCallback(
+//     (pair: Pair) => {
+//       dispatch(addSerializedPair({ serializedPair: serializePair(pair) }))
+//     },
+//     [dispatch]
+//   )
+// }
 
 export function useURLWarningVisible(): boolean {
   return useAppSelector((state: AppState) => state.user.URLWarningVisible)
@@ -252,19 +251,19 @@ export function useHideUniswapWalletBanner(): [boolean, () => void] {
  * @param tokenA one of the two tokens
  * @param tokenB the other token
  */
-export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
-  if (tokenA.chainId !== tokenB.chainId) throw new Error('Not matching chain IDs')
-  if (tokenA.equals(tokenB)) throw new Error('Tokens cannot be equal')
-  if (!V2_FACTORY_ADDRESSES[tokenA.chainId]) throw new Error('No V2 factory address on this chain')
+// export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
+//   if (tokenA.chainId !== tokenB.chainId) throw new Error('Not matching chain IDs')
+//   if (tokenA.equals(tokenB)) throw new Error('Tokens cannot be equal')
+//   if (!V2_FACTORY_ADDRESSES[tokenA.chainId]) throw new Error('No V2 factory address on this chain')
 
-  return new Token(
-    tokenA.chainId,
-    computePairAddress({ factoryAddress: V2_FACTORY_ADDRESSES[tokenA.chainId], tokenA, tokenB }),
-    18,
-    'UNI-V2',
-    'Uniswap V2'
-  )
-}
+//   return new Token(
+//     tokenA.chainId,
+//     computePairAddress({ factoryAddress: V2_FACTORY_ADDRESSES[tokenA.chainId], tokenA, tokenB }),
+//     18,
+//     'UNI-V2',
+//     'Uniswap V2'
+//   )
+// }
 
 /**
  * Returns all the pairs of tokens that are tracked by the user for the current chain ID.

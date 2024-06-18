@@ -1,3 +1,3 @@
-import { Token } from '@pollum-io/sdk-core'
+import { Token } from 'sdkcore18'
 
 export class UserAddedToken extends Token {}

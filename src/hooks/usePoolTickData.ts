@@ -1,5 +1,5 @@
-import { Currency } from '@pollum-io/sdk-core'
-import { FeeAmount, nearestUsableTick, Pool, TICK_SPACINGS, tickToPrice } from '@pollum-io/v3-sdk'
+import { Currency } from 'sdkcore18'
+import { FeeAmount, nearestUsableTick, Pool, TICK_SPACINGS, tickToPrice } from 'v3sdk18'
 import { useWeb3React } from '@web3-react/core'
 import { SupportedChainId } from 'constants/chains'
 import { ZERO_ADDRESS } from 'constants/misc'

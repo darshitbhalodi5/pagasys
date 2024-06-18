@@ -1,6 +1,6 @@
 import { i18n } from '@lingui/core'
 import { Trans } from '@lingui/macro'
-import { Token } from '@pollum-io/sdk-core'
+import { Token } from 'sdkcore18'
 import { formatNumber } from '@uniswap/conedison/format'
 import { useWeb3React } from '@web3-react/core'
 import { ButtonPrimary } from 'components/Button'

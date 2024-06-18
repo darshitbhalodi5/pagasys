@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro'
-import { Currency, Percent, TradeType } from '@pollum-io/sdk-core'
+import { Currency, Percent, TradeType } from 'sdkcore18'
 import { useWeb3React } from '@web3-react/core'
 import AnimatedDropdown from 'components/AnimatedDropdown'
 import Card, { OutlineCard } from 'components/Card'

@@ -1,5 +1,5 @@
-import { Trade } from '@pollum-io/router-sdk'
-import { Currency, Percent, TradeType } from '@pollum-io/sdk-core'
+import { Trade } from 'routersdk18'
+import { Currency, Percent, TradeType } from 'sdkcore18'
 import { PermitSignature } from 'hooks/usePermitAllowance'
 import { useMemo } from 'react'
 

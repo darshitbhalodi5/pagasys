@@ -1,6 +1,5 @@
 import { Trans } from '@lingui/macro'
-import { Currency, CurrencyAmount, Percent } from '@pollum-io/sdk-core'
-import { Pair } from '@pollum-io/v1-sdk'
+// import { Pair } from '@pollum-io/v1-sdk'
 import { useWeb3React } from '@web3-react/core'
 import { AutoColumn } from 'components/Column'
 import { LoadingOpacityContainer, loadingOpacityMixin } from 'components/Loader/styled'
@@ -9,9 +8,11 @@ import { isSupportedChain } from 'constants/chains'
 import { darken } from 'polished'
 import { ReactNode, useCallback, useEffect, useState } from 'react'
 import { Lock } from 'react-feather'
+import { Currency, CurrencyAmount, Percent } from 'sdkcore18'
 import styled, { useTheme } from 'styled-components/macro'
 import { flexColumnNoWrap, flexRowNoWrap } from 'theme/styles'
 import { formatCurrencyAmount } from 'utils/formatCurrencyAmount'
+import { Pool } from 'v3sdk18'
 
 import { ReactComponent as DropDown } from '../../assets/images/dropdown.svg'
 import { useCurrencyBalance } from '../../state/connection/hooks'
@@ -190,7 +191,7 @@ interface SwapCurrencyInputPanelProps {
   onCurrencySelect?: (currency: Currency) => void
   currency?: Currency | null
   hideBalance?: boolean
-  pair?: Pair | null
+  pool?: Pool | null
   hideInput?: boolean
   otherCurrency?: Currency | null
   fiatValue: { data?: number; isLoading: boolean }
@@ -220,7 +221,7 @@ export default function SwapCurrencyInputPanel({
   fiatValue,
   priceImpact,
   hideBalance = false,
-  pair = null, // used for double token logo
+  pool = null, // used for double token logo
   hideInput = false,
   locked = false,
   loading = false,
@@ -280,16 +281,16 @@ export default function SwapCurrencyInputPanel({
           >
             <Aligner>
               <RowFixed>
-                {pair ? (
+                {pool ? (
                   <span style={{ marginRight: '0.5rem' }}>
-                    <DoubleCurrencyLogo currency0={pair.token0} currency1={pair.token1} size={24} margin={true} />
+                    <DoubleCurrencyLogo currency0={pool.token0} currency1={pool.token1} size={24} margin={true} />
                   </span>
                 ) : currency ? (
                   <CurrencyLogo style={{ marginRight: '2px' }} currency={currency} size="24px" />
                 ) : null}
-                {pair ? (
+                {pool ? (
                   <StyledTokenName className="pair-name-container">
-                    {pair?.token0.symbol}:{pair?.token1.symbol}
+                    {pool?.token0.symbol}:{pool?.token1.symbol}
                   </StyledTokenName>
                 ) : (
                   <StyledTokenName className="token-symbol-container" active={Boolean(currency && currency.symbol)}>

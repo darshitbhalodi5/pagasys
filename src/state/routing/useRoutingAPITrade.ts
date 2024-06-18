@@ -1,5 +1,5 @@
-import { Currency, CurrencyAmount, TradeType } from '@pollum-io/sdk-core'
-import { IMetric, MetricLoggerUnit, setGlobalMetric } from '@pollum-io/smart-order-router'
+import { Currency, CurrencyAmount, TradeType } from 'sdkcore18'
+import { IMetric, MetricLoggerUnit, setGlobalMetric } from 'smartorderrouter18'
 import { skipToken } from '@reduxjs/toolkit/query/react'
 import { sendTiming } from 'components/analytics'
 import { AVERAGE_L1_BLOCK_TIME } from 'constants/chainInfo'
