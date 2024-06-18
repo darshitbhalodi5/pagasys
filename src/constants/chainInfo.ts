@@ -1,4 +1,3 @@
-import rolluxTennenbalLogoUrl from 'assets/svg/rollux_inverted_logo.svg'
 import rolluxLogoUrl from 'assets/svg/Rollux-1.svg'
 import { SupportedChainId } from 'constants/chains'
 import ms from 'ms.macro'
@@ -69,21 +68,21 @@ const CHAIN_INFO: ChainInfoMap = {
     color: darkTheme.chain_570_background,
     backgroundColor: darkTheme.chain_570_background,
   },
-  [SupportedChainId.ROLLUX_TANENBAUM]: {
-    networkType: NetworkType.L2,
-    blockWaitMsBeforeWarning: ms`25m`,
-    bridge: 'http://bridge.rollux.com/',
-    defaultListUrl: ROLLUX_LIST,
-    docs: 'https://rollux.com/',
-    explorer: 'https://rollux.tanenbaum.io/',
-    infoLink: 'https://info.pegasys.fi/#/',
-    label: 'Rollux Tanenbaum',
-    logoUrl: rolluxTennenbalLogoUrl,
-    statusPage: 'https://rollux.com/',
-    helpCenterUrl: 'https://pegasys.fi/',
-    nativeCurrency: { name: 'Syscoin', symbol: 'SYS', decimals: 18 },
-    color: darkTheme.chain_57000_background,
-  },
+  // [SupportedChainId.ROLLUX_TANENBAUM]: {
+  //   networkType: NetworkType.L2,
+  //   blockWaitMsBeforeWarning: ms`25m`,
+  //   bridge: 'http://bridge.rollux.com/',
+  //   defaultListUrl: ROLLUX_LIST,
+  //   docs: 'https://rollux.com/',
+  //   explorer: 'https://rollux.tanenbaum.io/',
+  //   infoLink: 'https://info.pegasys.fi/#/',
+  //   label: 'Rollux Tanenbaum',
+  //   logoUrl: rolluxTennenbalLogoUrl,
+  //   statusPage: 'https://rollux.com/',
+  //   helpCenterUrl: 'https://pegasys.fi/',
+  //   nativeCurrency: { name: 'Syscoin', symbol: 'SYS', decimals: 18 },
+  //   color: darkTheme.chain_57000_background,
+  // },
 }
 
 export function getChainInfo(chainId: SupportedL1ChainId): L1ChainInfo

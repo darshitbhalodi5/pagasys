@@ -1,10 +1,10 @@
-import { Currency, CurrencyAmount, TradeType } from 'sdkcore18'
-import { Route, SwapQuoter } from 'v3sdk18'
 import { useWeb3React } from '@web3-react/core'
 import JSBI from 'jsbi'
 import { useSingleContractWithCallData } from 'lib/hooks/multicall'
 import { useMemo } from 'react'
+import { Currency, CurrencyAmount, TradeType } from 'sdkcore18'
 import { InterfaceTrade, TradeState } from 'state/routing/types'
+import { Route, SwapQuoter } from 'v3sdk18'
 
 // import { isCelo } from '../constants/tokens'
 import { useAllV3Routes } from './useAllV3Routes'
@@ -135,10 +135,10 @@ export function useClientSideV3Trade<TTradeType extends TradeType>(
     return {
       state: TradeState.VALID,
       trade: new InterfaceTrade({
-        v1Routes: [],
-        v3Routes: [
+        // v1Routes: [],
+        v2Routes: [
           {
-            routev3: bestRoute,
+            routev2: bestRoute,
             inputAmount: amountIn,
             outputAmount: amountOut,
           },

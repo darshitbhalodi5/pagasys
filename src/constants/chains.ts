@@ -20,7 +20,8 @@ export const CHAIN_IDS_TO_NAMES = {
   // [SupportedChainId.ROLLUX_TANENBAUM]: 'rollux_tanenbaum',
 }
 
-// export type SupportedInterfaceChain = Exclude<SupportedChainsType, ChainId.ROLLUX_TANENBAUM>
+// eslint-disable-next-line import/no-unused-modules
+export type SupportedInterfaceChain = ChainId.MODE
 
 /**
  * Array of all the supported chain IDs

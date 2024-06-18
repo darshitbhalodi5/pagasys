@@ -200,10 +200,10 @@ export function useStakingInfo(pairToFilterBy?: Pool | null): StakingInfo[] {
           tokens: info[index].tokens,
           periodFinish: periodFinishMs > 0 ? new Date(periodFinishMs) : undefined,
           earnedAmount: CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
-          // rewardRate: individualRewardRate,
+          rewardRate: CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(rewardRateState?.result?.[0] ?? 0)),
           totalRewardRate,
-          // stakedAmount,
-          // totalStakedAmount,
+          stakedAmount: CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(stakedAmountState?.result?.[0] ?? 0)),
+          totalStakedAmount: CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(totalStakedAmountState?.result?.[0] ?? 0)),
           getHypotheticalRewardRate,
           active,
         })

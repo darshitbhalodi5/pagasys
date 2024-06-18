@@ -76,7 +76,7 @@ export default function AddLiquidity() {
     dependentField,
     currencies,
     pair,
-    pairState,
+    // pairState,
     currencyBalances,
     parsedAmounts,
     price,
@@ -427,7 +427,7 @@ export default function AddLiquidity() {
               currency={currencies[Field.CURRENCY_B] ?? null}
               id="add-liquidity-input-tokenb"
             />
-            {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
+            {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && (
               <>
                 <LightCard padding="0px" $borderRadius="20px">
                   <RowBetween padding="1rem">
@@ -520,7 +520,7 @@ export default function AddLiquidity() {
       <SwitchLocaleLink />
 
       {!addIsUnsupported ? (
-        pair && !noLiquidity && pairState !== PairState.INVALID ? (
+        pair && !noLiquidity ? (
           <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '400px', marginTop: '1rem' }}>
             <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
           </AutoColumn>

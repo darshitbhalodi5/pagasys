@@ -88,8 +88,8 @@ export class InterfaceTrade<
     //   inputAmount: CurrencyAmount<TInput>
     //   outputAmount: CurrencyAmount<TOutput>
     // }[]
-    v3Routes: {
-      routev3: V3Route<TInput, TOutput>
+    v2Routes: {
+      routev2: V3Route<TInput, TOutput>
       inputAmount: CurrencyAmount<TInput>
       outputAmount: CurrencyAmount<TOutput>
     }[]

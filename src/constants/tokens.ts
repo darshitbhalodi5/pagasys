@@ -59,20 +59,20 @@ export const UNI: { [chainId: number]: Token } = {
 
 export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } = {
   ...(WETH9 as Record<SupportedChainId, Token>),
-  [SupportedChainId.ROLLUX]: new Token(
-    SupportedChainId.ROLLUX,
+  [SupportedChainId.MODE]: new Token(
+    SupportedChainId.MODE,
     '0x4200000000000000000000000000000000000006',
     18,
     'WSYS',
     'Wrapped Syscoin'
   ),
-  [SupportedChainId.ROLLUX_TANENBAUM]: new Token(
-    SupportedChainId.ROLLUX_TANENBAUM,
-    '0x4200000000000000000000000000000000000006',
-    18,
-    'WSYS',
-    'Wrapped Syscoin'
-  ),
+  // [SupportedChainId.ROLLUX_TANENBAUM]: new Token(
+  //   SupportedChainId.ROLLUX_TANENBAUM,
+  //   '0x4200000000000000000000000000000000000006',
+  //   18,
+  //   'WSYS',
+  //   'Wrapped Syscoin'
+  // ),
 }
 
 class ExtendedEther extends Ether {

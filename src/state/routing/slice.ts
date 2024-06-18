@@ -1,10 +1,10 @@
-import { Protocol } from 'routersdk18'
-import { AlphaRouter, ChainId } from 'smartorderrouter18'
 import { createApi, fetchBaseQuery, FetchBaseQueryError } from '@reduxjs/toolkit/query/react'
 import { RPC_PROVIDERS } from 'constants/providers'
 import { getClientSideQuote, toSupportedChainId } from 'lib/hooks/routing/clientSideSmartOrderRouter'
 import ms from 'ms.macro'
 import qs from 'qs'
+import { Protocol } from 'routersdk18'
+import { AlphaRouter, ChainId } from 'smartorderrouter18'
 import { trace } from 'tracing'
 
 import { GetQuoteResult } from './types'
@@ -36,13 +36,13 @@ const API_QUERY_PARAMS = {
   protocols: 'v1,v3,mixed',
 }
 const CLIENT_PARAMS = {
-  protocols: [Protocol.V1, Protocol.V3, Protocol.MIXED],
+  protocols: [Protocol.V3],
 }
 // Price queries are tuned down to minimize the required RPCs to respond to them.
 // TODO(zzmp): This will be used after testing router caching.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PRICE_PARAMS = {
-  protocols: [Protocol.V1, Protocol.V3],
+  protocols: [Protocol.V3],
   v2PoolSelection: {
     topN: 2,
     topNDirectSwaps: 1,
@@ -129,7 +129,9 @@ export const routingApi = createApi({
               amount,
               type,
             })
-            return (await fetch(`https://api.pegasys.fi/prod/quote?${query}`)) as { data: GetQuoteResult } | { error: FetchBaseQueryError }
+            return (await fetch(`https://api.pegasys.fi/prod/quote?${query}`)) as
+              | { data: GetQuoteResult }
+              | { error: FetchBaseQueryError }
           } else {
             const router = getRouter(args.tokenInChainId)
             return await getClientSideQuote(

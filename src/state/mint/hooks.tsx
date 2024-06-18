@@ -52,7 +52,7 @@ export function useDerivedMintInfo(
   dependentField: Field
   currencies: { [field in Field]?: Currency }
   pair?: Pair | null
-  pairState: PairState
+  // pairState: PairState
   currencyBalances: { [field in Field]?: CurrencyAmount<Currency> }
   parsedAmounts: { [field in Field]?: CurrencyAmount<Currency> }
   price?: Price<Currency, Currency>

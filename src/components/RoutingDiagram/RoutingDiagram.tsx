@@ -1,7 +1,4 @@
 import { Trans } from '@lingui/macro'
-import { Protocol } from 'routersdk18'
-import { Currency } from 'sdkcore18'
-import { FeeAmount } from 'v3sdk18'
 import Badge from 'components/Badge'
 import DoubleCurrencyLogo from 'components/DoubleLogo'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'
@@ -9,9 +6,11 @@ import Row, { AutoRow } from 'components/Row'
 import { RoutingDiagramEntry } from 'components/swap/SwapRoute'
 import { useTokenInfoFromActiveList } from 'hooks/useTokenInfoFromActiveList'
 import { Box } from 'rebass'
+import { Currency } from 'sdkcore18'
 import styled from 'styled-components/macro'
 import { ThemedText } from 'theme'
 import { Z_INDEX } from 'theme/zIndex'
+import { FeeAmount } from 'v3sdk18'
 
 import { ReactComponent as DotLine } from '../../assets/svg/dot_line.svg'
 import { MouseoverTooltip } from '../Tooltip'
@@ -75,9 +74,9 @@ const ProtocolBadge = styled(Badge)`
   z-index: ${Z_INDEX.sticky + 1};
 `
 
-const MixedProtocolBadge = styled(ProtocolBadge)`
-  width: 60px;
-`
+// const MixedProtocolBadge = styled(ProtocolBadge)`
+//   width: 60px;
+// `
 
 const BadgeText = styled(ThemedText.DeprecatedSmall)`
   word-break: normal;
@@ -115,15 +114,9 @@ function Route({ entry: { percent, path, protocol } }: { entry: RoutingDiagramEn
         <DotColor />
       </DottedLine>
       <OpaqueBadge>
-        {protocol === Protocol.MIXED ? (
-          <MixedProtocolBadge>
-            <BadgeText fontSize={12}>V3 + V2</BadgeText>
-          </MixedProtocolBadge>
-        ) : (
-          <ProtocolBadge>
-            <BadgeText fontSize={12}>{protocol.toUpperCase()}</BadgeText>
-          </ProtocolBadge>
-        )}
+        <ProtocolBadge>
+          <BadgeText fontSize={12}>{protocol.toUpperCase()}</BadgeText>
+        </ProtocolBadge>
         <BadgeText fontSize={14} style={{ minWidth: 'auto' }}>
           {percent.toSignificant(2)}%
         </BadgeText>
