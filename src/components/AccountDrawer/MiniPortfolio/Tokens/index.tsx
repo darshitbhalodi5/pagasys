@@ -1,4 +1,3 @@
-import { Token } from 'sdkcore18'
 import { formatNumber, NumberType } from '@uniswap/conedison/format'
 import Row from 'components/Row'
 import { formatDelta } from 'components/Tokens/TokenDetails/PriceChart'
@@ -12,6 +11,7 @@ import useNativeCurrency from 'lib/hooks/useNativeCurrency'
 import { EmptyWalletModule } from 'nft/components/profile/view/EmptyWalletContent'
 import { useCallback, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Token } from 'sdkcore18'
 import styled from 'styled-components/macro'
 import { EllipsisStyle, ThemedText } from 'theme'
 
@@ -171,7 +171,7 @@ function TokenRow(portifolio: NonNullable<TokenDataOwner>) {
   const navigate = useNavigate()
   const toggleWalletDrawer = useToggleAccountDrawer()
   const navigateToTokenDetails = useCallback(async () => {
-    navigate(getTokenDetailsURL({ address: portifolio.token.address.toLowerCase(), chain: 'ROLLUX' as Chain }))
+    navigate(getTokenDetailsURL({ address: portifolio.token.address.toLowerCase(), chain: 'MODE' as Chain }))
     toggleWalletDrawer()
   }, [navigate, portifolio.token.address, toggleWalletDrawer])
 

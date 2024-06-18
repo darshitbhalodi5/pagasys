@@ -1,5 +1,3 @@
-import { Currency } from 'sdkcore18'
-import { ChainId } from 'smartorderrouter18'
 import LoadingGifLight from 'assets/images/lightLoading.gif'
 import LoadingGif from 'assets/images/loading.gif'
 import blankTokenUrl from 'assets/svg/blank_token.svg'
@@ -11,6 +9,8 @@ import { getChainInfo } from 'constants/chainInfo'
 import useTokenLogoSource from 'hooks/useAssetLogoSource'
 import useENSAvatar from 'hooks/useENSAvatar'
 import React from 'react'
+import { Currency } from 'sdkcore18'
+import { ChainId } from 'smartorderrouter18'
 import styled, { useTheme } from 'styled-components/macro'
 import { useIsDarkMode } from 'theme/components/ThemeToggle'
 
@@ -89,7 +89,7 @@ const L2LogoContainer = styled.div<{ $backgroundColor?: string }>`
  * Renders an image by prioritizing a list of sources, and then eventually a fallback triangle alert
  */
 export function PortfolioLogo({
-  chainId = ChainId.ROLLUX,
+  chainId = ChainId.MODE,
   accountAddress = '',
   currencies = [],
   images = [],
@@ -146,7 +146,7 @@ export function PortfolioLogo({
   }
 
   const L2Logo =
-    chainId !== ChainId.ROLLUX && chainLogo ? (
+    chainId !== ChainId.MODE && chainLogo ? (
       <L2LogoContainer $backgroundColor={squareLogoUrl ? theme.backgroundSurface : theme.textPrimary}>
         {squareLogoUrl ? (
           <SquareChainLogo src={chainLogo} alt="chainLogo" />

@@ -1,6 +1,6 @@
 // a list of tokens by chain
-import { Currency, Token } from 'sdkcore18'
 import { SupportedChainId } from 'constants/chains'
+import { Currency, Token } from 'sdkcore18'
 
 import { nativeOnChain, USDC_ROLLUX, USDT_ROLLUX, WBTC_ROLLUX, WRAPPED_NATIVE_CURRENCY } from './tokens'
 
@@ -21,11 +21,7 @@ const WRAPPED_NATIVE_CURRENCIES_ONLY: ChainTokenList = Object.fromEntries(
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WRAPPED_NATIVE_CURRENCIES_ONLY,
-  [SupportedChainId.ROLLUX]: [
-    ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.ROLLUX],
-    USDC_ROLLUX,
-    WBTC_ROLLUX,
-  ],
+  [SupportedChainId.MODE]: [...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.MODE], USDC_ROLLUX, WBTC_ROLLUX],
 }
 export const ADDITIONAL_BASES: { [chainId: number]: { [tokenAddress: string]: Token[] } } = {}
 /**
@@ -38,13 +34,8 @@ export const CUSTOM_BASES: { [chainId: number]: { [tokenAddress: string]: Token[
  * Shows up in the currency select for swap and add liquidity
  */
 export const COMMON_BASES: ChainCurrencyList = {
-  [SupportedChainId.ROLLUX]: [
-    nativeOnChain(SupportedChainId.ROLLUX),
-    USDC_ROLLUX,
-    USDT_ROLLUX,
-    WBTC_ROLLUX,
-  ],
-  [SupportedChainId.ROLLUX_TANENBAUM]: [nativeOnChain(SupportedChainId.ROLLUX_TANENBAUM)],
+  [SupportedChainId.MODE]: [nativeOnChain(SupportedChainId.MODE), USDC_ROLLUX, USDT_ROLLUX, WBTC_ROLLUX],
+  // [SupportedChainId.ROLLUX_TANENBAUM]: [nativeOnChain(SupportedChainId.ROLLUX_TANENBAUM)],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend

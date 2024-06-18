@@ -28,8 +28,8 @@ const RootWrapper = styled.div`
 `
 
 const SHOULD_SHOW_ALERT = {
-  [SupportedChainId.ROLLUX]: true,
-  [SupportedChainId.ROLLUX_TANENBAUM]: true,
+  [SupportedChainId.MODE]: true,
+  // [SupportedChainId.ROLLUX_TANENBAUM]: true,
 }
 
 type NetworkAlertChains = keyof typeof SHOULD_SHOW_ALERT
@@ -38,16 +38,16 @@ const BG_COLORS_BY_DARK_MODE_AND_CHAIN_ID: {
   [darkMode in 'dark' | 'light']: { [chainId in NetworkAlertChains]: string }
 } = {
   dark: {
-    [SupportedChainId.ROLLUX]:
+    [SupportedChainId.MODE]:
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(240, 185, 11, 0.16) 0%, rgba(255, 168, 0, 0.16) 100%)',
-    [SupportedChainId.ROLLUX_TANENBAUM]:
-      'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(240, 185, 11, 0.16) 0%, rgba(255, 168, 0, 0.16) 100%)',
+    // [SupportedChainId.ROLLUX_TANENBAUM]:
+    //   'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(240, 185, 11, 0.16) 0%, rgba(255, 168, 0, 0.16) 100%)',
   },
   light: {
-    [SupportedChainId.ROLLUX]:
+    [SupportedChainId.MODE]:
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(240, 185, 11, 0.16) 0%, rgba(255, 168, 0, 0.16) 100%)',
-    [SupportedChainId.ROLLUX_TANENBAUM]:
-      'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(240, 185, 11, 0.16) 0%, rgba(255, 168, 0, 0.16) 100%)',
+    // [SupportedChainId.ROLLUX_TANENBAUM]:
+    //   'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(240, 185, 11, 0.16) 0%, rgba(255, 168, 0, 0.16) 100%)',
   },
 }
 
@@ -98,8 +98,8 @@ const StyledArrowUpRight = styled(ArrowUpRight)`
 `
 
 const TEXT_COLORS: { [chainId in NetworkAlertChains]: string } = {
-  [SupportedChainId.ROLLUX]: 'rgb(255 130 0)',
-  [SupportedChainId.ROLLUX_TANENBAUM]: 'rgb(255 130 0)',
+  [SupportedChainId.MODE]: 'rgb(255 130 0)',
+  // [SupportedChainId.ROLLUX_TANENBAUM]: 'rgb(255 130 0)',
 }
 
 function shouldShowAlert(chainId: number | undefined): chainId is NetworkAlertChains {
@@ -114,7 +114,7 @@ export function BannerAlert() {
     return null
   }
 
-  const isRolluxChain = SupportedChainId.ROLLUX || SupportedChainId.ROLLUX_TANENBAUM
+  const isRolluxChain = SupportedChainId.MODE
   const chainInfo = getChainInfo(chainId)
   if (!chainInfo) return null
 

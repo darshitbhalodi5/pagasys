@@ -1,7 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { Trans } from '@lingui/macro'
-import { Percent, Price, Token } from 'sdkcore18'
-import { Position } from 'v3sdk18'
 import LoadingGifLight from 'assets/images/lightLoading.gif'
 import LoadingGif from 'assets/images/loading.gif'
 import RangeBadge from 'components/Badge/RangeBadge'
@@ -14,6 +12,7 @@ import useIsTickAtLimit from 'hooks/useIsTickAtLimit'
 import { usePool } from 'hooks/usePools'
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { Percent, Price, Token } from 'sdkcore18'
 import { Bound } from 'state/mint/v3/actions'
 import styled from 'styled-components/macro'
 import { HideSmall, MEDIA_WIDTHS, SmallOnly, ThemedText } from 'theme'
@@ -21,6 +20,7 @@ import { useIsDarkMode } from 'theme/components/ThemeToggle'
 import { formatTickPrice } from 'utils/formatTickPrice'
 import { unwrappedToken } from 'utils/unwrappedToken'
 import { hasURL } from 'utils/urlChecks'
+import { Position } from 'v3sdk18'
 
 import { USDC_ROLLUX, USDT_ROLLUX, WBTC_ROLLUX, WRAPPED_NATIVE_CURRENCY } from '../../constants/tokens'
 
@@ -126,7 +126,7 @@ export function getPriceOrderingFromPositionForUI(position?: Position): {
   const token1 = position.amount1.currency
 
   // if token0 is a dollar-stable asset, set it as the quote token
-  const stables = [ USDC_ROLLUX, USDT_ROLLUX]
+  const stables = [USDC_ROLLUX, USDT_ROLLUX]
   if (stables.some((stable) => stable.equals(token0))) {
     return {
       priceLower: position.token0PriceUpper.invert(),

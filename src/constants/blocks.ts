@@ -1,5 +1,5 @@
 import { SupportedChainId } from './chains'
 
 export const START_BLOCKS: { [key: string]: number } = {
-  [SupportedChainId.ROLLUX]: 87429,
+  [SupportedChainId.MODE]: 87429,
 }

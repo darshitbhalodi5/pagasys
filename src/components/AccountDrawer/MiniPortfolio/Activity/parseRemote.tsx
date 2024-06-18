@@ -1,5 +1,4 @@
 import { t } from '@lingui/macro'
-import { ChainId } from 'smartorderrouter18'
 import { formatNumberOrString, NumberType } from '@uniswap/conedison/format'
 import {
   ActivityType,
@@ -12,6 +11,7 @@ import {
 } from 'graphql/data/__generated__/types-and-hooks'
 import ms from 'ms.macro'
 import { useEffect, useState } from 'react'
+import { ChainId } from 'smartorderrouter18'
 import { isAddress } from 'utils'
 
 import { Activity } from './types'
@@ -245,7 +245,7 @@ function parseRemoteActivity(assetActivity: AssetActivityPartsFragment): Activit
     )
     const defaultFields = {
       hash: assetActivity.transaction.hash,
-      chainId: ChainId.ROLLUX, // fromGraphQLChain(assetActivity.chain),
+      chainId: ChainId.MODE, // fromGraphQLChain(assetActivity.chain),
       status: assetActivity.transaction.status,
       timestamp: assetActivity.timestamp,
       logos: getLogoSrcs(changes),

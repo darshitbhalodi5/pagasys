@@ -1,5 +1,5 @@
 overrideExisting: true
-schema: 'https://rollux.graph.pegasys.fi/subgraphs/name/pollum-io/pegasys-v3'
+schema: 'https://api.goldsky.com/api/public/project_clvqb3g2poub601xzgkzc9oxs/subgraphs/udonswap-v3/1/gn'
 generates:
   ./src/graphql/thegraph/schema/schema.graphql:
     plugins:

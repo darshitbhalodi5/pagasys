@@ -1,6 +1,7 @@
 import { gql, useQuery } from '@apollo/client'
-import { SupportedChainId } from '@pollum-io/widgets'
 import { useMemo } from 'react'
+// import { SupportedChainId } from '@pollum-io/widgets'
+import { SupportedChainId } from 'sdkcore18'
 
 import { apolloClient } from '../thegraph/apollo'
 import { unwrapTokenRollux } from '../utils/util'
@@ -62,7 +63,7 @@ export function useNewTopTokens(): {
     if (!data) return undefined
 
     const unwrappedTokens = data?.tokens.map((token) => {
-      return unwrapTokenRollux(SupportedChainId.ROLLUX, token)
+      return unwrapTokenRollux(SupportedChainId.MODE, token)
     })
 
     return unwrappedTokens

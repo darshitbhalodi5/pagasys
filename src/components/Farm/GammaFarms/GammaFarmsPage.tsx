@@ -1,4 +1,3 @@
-import { ChainId } from 'smartorderrouter18'
 import { useWeb3React } from '@web3-react/core'
 import LoadingGifLight from 'assets/images/lightLoading.gif'
 import LoadingGif from 'assets/images/loading.gif'
@@ -8,6 +7,7 @@ import { useMasterChefContract } from 'hooks/useContract'
 import React, { useEffect, useMemo, useState } from 'react'
 import { Frown } from 'react-feather'
 import { useQuery } from 'react-query'
+import { ChainId } from 'smartorderrouter18'
 import { useCombinedActiveList } from 'state/lists/hooks'
 import styled from 'styled-components/macro'
 import { useIsDarkMode } from 'theme/components/ThemeToggle'
@@ -45,7 +45,7 @@ const GammaFarmsPage: React.FC<{
   }, [rewardPerSecond, rewardTokenAddress])
 
   const allGammaFarms = useMemo(() => {
-    const pairsGroups = GammaPairs[ChainId.ROLLUX]
+    const pairsGroups = GammaPairs[ChainId.MODE]
     if (!pairsGroups) {
       return []
     }
@@ -106,6 +106,7 @@ const GammaFarmsPage: React.FC<{
       .map((item) => {
         const token0 = getTokenFromAddress(item?.token0Address, tokenMap, [])
         const token1 = getTokenFromAddress(item?.token1Address, tokenMap, [])
+        console.log(token0, token1)
         return { ...item, token0: token0 ?? null, token1: token1 ?? null } as itemFarmToken
       })
       .filter((item) => filterFarm(item, search))

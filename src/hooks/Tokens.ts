@@ -1,4 +1,3 @@
-import { Currency, Token } from 'sdkcore18'
 import { useWeb3React } from '@web3-react/core'
 import { getChainInfo } from 'constants/chainInfo'
 import { SupportedChainId } from 'constants/chains'
@@ -6,6 +5,7 @@ import { DEFAULT_INACTIVE_LIST_URLS, DEFAULT_LIST_OF_LISTS } from 'constants/lis
 import { useCurrencyFromMap, useTokenFromMapOrNetwork } from 'lib/hooks/useCurrency'
 import { getTokenFilter } from 'lib/hooks/useTokenList/filtering'
 import { useMemo } from 'react'
+import { Currency, Token } from 'sdkcore18'
 import { isL2ChainId } from 'utils/chains'
 
 import { useAllLists, useCombinedActiveList, useCombinedTokenMapFromUrls } from '../state/lists/hooks'
@@ -91,13 +91,13 @@ export function useUnsupportedTokens(): { [address: string]: Token } {
       const bridgeInfo = tokenInfo.extensions?.bridgeInfo as unknown as BridgeInfo
       if (
         bridgeInfo &&
-        bridgeInfo[SupportedChainId.ROLLUX] &&
-        bridgeInfo[SupportedChainId.ROLLUX].tokenAddress &&
-        unsupportedSet.has(bridgeInfo[SupportedChainId.ROLLUX].tokenAddress)
+        bridgeInfo[SupportedChainId.MODE] &&
+        bridgeInfo[SupportedChainId.MODE].tokenAddress &&
+        unsupportedSet.has(bridgeInfo[SupportedChainId.MODE].tokenAddress)
       ) {
-        const address = bridgeInfo[SupportedChainId.ROLLUX].tokenAddress
+        const address = bridgeInfo[SupportedChainId.MODE].tokenAddress
         // don't rely on decimals--it's possible that a token could be bridged w/ different decimals on the L2
-        return { ...acc, [address]: new Token(SupportedChainId.ROLLUX, address, tokenInfo.decimals) }
+        return { ...acc, [address]: new Token(SupportedChainId.MODE, address, tokenInfo.decimals) }
       }
       return acc
     }, {})

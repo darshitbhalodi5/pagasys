@@ -1,8 +1,8 @@
-import { Currency, CurrencyAmount, Price, Token, TradeType } from 'sdkcore18'
 import { useWeb3React } from '@web3-react/core'
 import { SupportedChainId } from 'constants/chains'
 import tryParseCurrencyAmount from 'lib/utils/tryParseCurrencyAmount'
 import { useMemo, useRef } from 'react'
+import { Currency, CurrencyAmount, Price, Token, TradeType } from 'sdkcore18'
 import { RouterPreference } from 'state/routing/slice'
 import { useRoutingAPITrade } from 'state/routing/useRoutingAPITrade'
 
@@ -13,7 +13,7 @@ import { USDC_ROLLUX } from '../constants/tokens'
 const STABLECOIN_AMOUNT_OUT: { [chainId: number]: CurrencyAmount<Token> } = {
   // [SupportedChainId.MAINNET]: CurrencyAmount.fromRawAmount(USDC_MAINNET, 100_000e6),
   // [SupportedChainId.ARBITRUM_ONE]: CurrencyAmount.fromRawAmount(USDC_ARBITRUM, 10_000e6),
-  [SupportedChainId.ROLLUX]: CurrencyAmount.fromRawAmount(USDC_ROLLUX, 10_000e6),
+  [SupportedChainId.MODE]: CurrencyAmount.fromRawAmount(USDC_ROLLUX, 10_000e6),
   // [SupportedChainId.POLYGON]: CurrencyAmount.fromRawAmount(USDC_POLYGON, 10_000e6),
   // [SupportedChainId.CELO]: CurrencyAmount.fromRawAmount(CUSD_CELO, 10_000e18),
   // [SupportedChainId.BNB]: CurrencyAmount.fromRawAmount(USDT_BSC, 100e18),

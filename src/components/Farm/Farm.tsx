@@ -1,4 +1,3 @@
-import { ChainId } from 'smartorderrouter18'
 import { useWeb3React } from '@web3-react/core'
 import CustomSelector, { SelectorItem } from 'components/CustomSelector/CustomSelector'
 import { MAX_WIDTH_MEDIA_BREAKPOINT } from 'components/Tokens/constants'
@@ -8,6 +7,7 @@ import { useIsMobile } from 'nft/hooks'
 import { useCallback, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { ChainId } from 'smartorderrouter18'
 import styled from 'styled-components/macro'
 
 import { GammaPairs, GlobalConst } from './constants'
@@ -74,7 +74,7 @@ export function Farms() {
   const [sortDesc, setSortDesc] = useState(false)
 
   const allGammaFarms = useMemo(() => {
-    const pairsGroups = GammaPairs[ChainId.ROLLUX]
+    const pairsGroups = GammaPairs[ChainId.MODE]
     if (!pairsGroups) {
       return []
     }

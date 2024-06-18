@@ -1,8 +1,8 @@
 import { Trans } from '@lingui/macro'
-import { ChainId } from 'smartorderrouter18'
-import { FeeAmount } from 'v3sdk18'
 import { ALL_SUPPORTED_CHAIN_IDS } from 'constants/chains'
 import type { ReactNode } from 'react'
+import { ChainId } from 'smartorderrouter18'
+import { FeeAmount } from 'v3sdk18'
 
 export const FEE_AMOUNT_DETAIL: Record<
   FeeAmount,
@@ -17,7 +17,7 @@ export const FEE_AMOUNT_DETAIL: Record<
       // SupportedChainId.CELO,
       // SupportedChainId.CELO_ALFAJORES,
       // SupportedChainId.MAINNET,
-      ChainId.ROLLUX,
+      ChainId.MODE,
       // SupportedChainId.POLYGON,
       // SupportedChainId.POLYGON_MUMBAI,
     ],

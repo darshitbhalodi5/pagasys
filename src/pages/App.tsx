@@ -27,7 +27,6 @@ import { BodyWrapper } from './AppBody'
 import { Farm } from './Farm'
 import Landing from './Landing'
 import { LeaderBoard } from './Leaderboard'
-import MigrateV2 from './MigrateV2'
 import MigrateV2Pair from './MigrateV2/MigrateV2Pair'
 import NotFound from './NotFound'
 import Pool from './Pool'
@@ -189,7 +188,7 @@ export default function App() {
               <Route path="remove/v2/:currencyIdA/:currencyIdB" element={<RemoveLiquidity />} />
               <Route path="remove/:tokenId" element={<RemoveLiquidityV3 />} />
 
-              <Route path="migrate/v2" element={<MigrateV2 />} />
+              {/* <Route path="migrate/v2" element={<MigrateV2 />} /> */}
               <Route path="migrate/v2/:address" element={<MigrateV2Pair />} />
 
               <Route path="leaderboard" element={<LeaderBoard />} />

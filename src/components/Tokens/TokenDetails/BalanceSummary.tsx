@@ -1,6 +1,4 @@
 import { Trans } from '@lingui/macro'
-import { Currency } from 'sdkcore18'
-import { ChainId } from 'smartorderrouter18'
 import { formatCurrencyAmount, NumberType } from '@uniswap/conedison/format'
 import { useWeb3React } from '@web3-react/core'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'
@@ -8,6 +6,8 @@ import { getChainInfo } from 'constants/chainInfo'
 import { isSupportedChain } from 'constants/chains'
 import { useStablecoinValue } from 'hooks/useStablecoinPrice'
 import useCurrencyBalance from 'lib/hooks/useCurrencyBalance'
+import { Currency } from 'sdkcore18'
+import { ChainId } from 'smartorderrouter18'
 import styled, { useTheme } from 'styled-components/macro'
 import { ThemedText } from 'theme'
 
@@ -66,7 +66,7 @@ const StyledNetworkLabel = styled.div`
 export default function BalanceSummary({ token }: { token: Currency }) {
   const { account, chainId } = useWeb3React()
   const theme = useTheme()
-  const { label, color } = getChainInfo(isSupportedChain(chainId) ? chainId : ChainId.ROLLUX)
+  const { label, color } = getChainInfo(isSupportedChain(chainId) ? chainId : ChainId.MODE)
   const balance = useCurrencyBalance(account, token)
   const formattedBalance = formatCurrencyAmount(balance, NumberType.TokenNonTx)
   const formattedUsdValue = formatCurrencyAmount(useStablecoinValue(balance), NumberType.FiatTokenStats)

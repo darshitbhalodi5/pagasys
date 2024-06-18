@@ -1,7 +1,6 @@
 import { Contract } from '@ethersproject/contracts'
 import IPegasysPairJson from '@pollum-io/pegasys-protocol/artifacts/contracts/pegasys-core/interfaces/IPegasysPair.sol/IPegasysPair.json'
 import IPegasysRouterJson from '@pollum-io/pegasys-protocol/artifacts/contracts/pegasys-periphery/interfaces/IPegasysRouter.sol/IPegasysRouter.json'
-import { ChainId } from 'smartorderrouter18'
 import QuoterV2Json from '@pollum-io/swap-router-contracts/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json'
 import PegasysInterfaceMulticallJson from '@pollum-io/v3-periphery/artifacts/contracts/lens/PegasysInterfaceMulticall.sol/PegasysInterfaceMulticall.json'
 import QuoterJson from '@pollum-io/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json'
@@ -33,6 +32,7 @@ import {
 } from 'constants/addresses'
 import { WRAPPED_NATIVE_CURRENCY } from 'constants/tokens'
 import { useMemo } from 'react'
+import { ChainId } from 'smartorderrouter18'
 import { NonfungiblePositionManager, PegasysInterfaceMulticall, Quoter, QuoterV2, TickLens } from 'types/v3'
 import { V3Migrator } from 'types/v3/V3Migrator'
 
@@ -173,7 +173,7 @@ export function useTickLens(): TickLens | null {
 }
 
 export function useMasterChefContract(withSignerIfPossible?: boolean, abi?: any) {
-  return useContract(GAMMA_MASTERCHEF_ADDRESSES[ChainId.ROLLUX], abi ?? GammaMasterChef, withSignerIfPossible)
+  return useContract(GAMMA_MASTERCHEF_ADDRESSES[ChainId.MODE], abi ?? GammaMasterChef, withSignerIfPossible)
 }
 
 // export function useMasterChefContracts(withSignerIfPossible?: boolean) {
@@ -185,5 +185,5 @@ export function useGammaHypervisorContract(address?: string, withSignerIfPossibl
 }
 
 export function useGammaUniProxyContract(withSignerIfPossible?: boolean) {
-  return useContract(GAMMA_UNIPROXY_ADDRESSES[ChainId.ROLLUX], GammaUniProxyABI, withSignerIfPossible)
+  return useContract(GAMMA_UNIPROXY_ADDRESSES[ChainId.MODE], GammaUniProxyABI, withSignerIfPossible)
 }

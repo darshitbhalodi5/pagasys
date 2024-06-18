@@ -1,16 +1,16 @@
-import { CurrencyAmount, Token } from 'sdkcore18'
-import { ChainId } from 'smartorderrouter18'
 import IPegasysV3PoolStateABI from '@pollum-io/v3-core/artifacts/contracts/interfaces/pool/IPegasysV3PoolState.sol/IPegasysV3PoolState.json'
-import { computePoolAddress, Pool, Position } from 'v3sdk18'
 import { V3_CORE_FACTORY_ADDRESSES } from 'constants/addresses'
 import { DEFAULT_ERC20_DECIMALS } from 'constants/tokens'
 import { BigNumber } from 'ethers/lib/ethers'
 import { Interface } from 'ethers/lib/utils'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { CurrencyAmount, Token } from 'sdkcore18'
+import { ChainId } from 'smartorderrouter18'
 import { PositionDetails } from 'types/position'
 import { NonfungiblePositionManager, PegasysInterfaceMulticall } from 'types/v3'
 import { PegasysV3PoolInterface } from 'types/v3/PegasysV3Pool'
 import { currencyKey } from 'utils/currencyKey'
+import { computePoolAddress, Pool, Position } from 'v3sdk18'
 
 import { PositionInfo, useCachedPositions, useGetCachedTokens, usePoolAddressCache } from './cache'
 import { Call, DEFAULT_GAS_LIMIT } from './getTokensAsync'
@@ -44,8 +44,8 @@ const MAX_UINT128 = BigNumber.from(2).pow(128).sub(1)
 const DEFAULT_CHAINS = [
   // SupportedChainId.MAINNET,
   // SupportedChainId.ARBITRUM_ONE,
-  ChainId.ROLLUX,
-  ChainId.ROLLUX_TANENBAUM,
+  ChainId.MODE,
+  // ChainId.ROLLUX_TANENBAUM,
   // SupportedChainId.POLYGON,
   // SupportedChainId.CELO,
 ]

@@ -1,10 +1,10 @@
-import { Currency } from 'sdkcore18'
-import { ChainId } from 'smartorderrouter18'
 import { FarmPoolData, InfoAddress } from 'components/Farm/constants'
 import { SupportedChainId } from 'constants/chains'
 import { NATIVE_CHAIN_ID, nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'constants/tokens'
 import { HistoryDuration } from 'graphql/data/__generated__/types-and-hooks'
 import ms from 'ms.macro'
+import { Currency } from 'sdkcore18'
+import { ChainId } from 'smartorderrouter18'
 import { getNativeTokenDBAddress } from 'utils/nativeTokens'
 
 import { Chain, ContractInput } from './types'
@@ -60,19 +60,19 @@ export type PricePoint = { timestamp: number; value: number }
 // }
 
 export const CHAIN_ID_TO_BACKEND_NAME: { [key: number]: Chain } = {
-  [SupportedChainId.ROLLUX]: 'ROLLUX' as Chain,
-  [SupportedChainId.ROLLUX_TANENBAUM]: 'ROLLUX' as Chain,
+  [SupportedChainId.MODE]: 'MODE' as Chain,
+  // [SupportedChainId.ROLLUX_TANENBAUM]: 'ROLLUX' as Chain,
 }
 
 export function chainIdToBackendName(chainId: number | undefined) {
   return chainId && CHAIN_ID_TO_BACKEND_NAME[chainId]
     ? CHAIN_ID_TO_BACKEND_NAME[chainId]
-    : CHAIN_ID_TO_BACKEND_NAME[SupportedChainId.ROLLUX]
+    : CHAIN_ID_TO_BACKEND_NAME[SupportedChainId.MODE]
 }
 
 const GQL_CHAINS: number[] = [
   // SupportedChainId.MAINNET,
-  SupportedChainId.ROLLUX,
+  SupportedChainId.MODE,
   // SupportedChainId.POLYGON,
   // SupportedChainId.ARBITRUM_ONE,
   // SupportedChainId.CELO,
@@ -91,27 +91,25 @@ const URL_CHAIN_PARAM_TO_BACKEND: { [key: string]: Chain } = {
   // polygon: Chain.Polygon,
   // celo: Chain.Celo,
   // arbitrum: Chain.Arbitrum,
-  rollux: 'ROLLUX' as Chain,
+  mode: 'MODE' as Chain,
   // bnb: Chain.Bnb,
 }
 
 export function validateUrlChainParam(chainName: string | undefined) {
-  return chainName && URL_CHAIN_PARAM_TO_BACKEND[chainName]
-    ? URL_CHAIN_PARAM_TO_BACKEND[chainName]
-    : ('ROLLUX' as Chain)
+  return chainName && URL_CHAIN_PARAM_TO_BACKEND[chainName] ? URL_CHAIN_PARAM_TO_BACKEND[chainName] : ('MODE' as Chain)
 }
 
 // TODO(cartcrom): refactor into safer lookup & replace usage
 // TODO verify this later
 export const CHAIN_NAME_TO_CHAIN_ID: { [key in string]: ChainId } = {
-  ['ROLLUX' as Chain]: ChainId.ROLLUX,
+  ['MODE' as Chain]: ChainId.MODE,
 }
 
 export function fromGraphQLChain(chain: Chain): ChainId {
   return CHAIN_NAME_TO_CHAIN_ID[chain]
 }
 
-export const BACKEND_CHAIN_NAMES: Chain[] = ['ROLLUX' as Chain]
+export const BACKEND_CHAIN_NAMES: Chain[] = ['MODE' as Chain]
 
 export function getTokenDetailsURL({
   address,

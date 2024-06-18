@@ -12,7 +12,7 @@ function getChainId(token?: TokenQueryData | SearchToken | TokenData): ChainId |
   if (token && 'chain' in token) {
     return token?.chain ? CHAIN_NAME_TO_CHAIN_ID[token?.chain] : undefined
   } else {
-    return ChainId.ROLLUX
+    return ChainId.MODE
   }
 }
 

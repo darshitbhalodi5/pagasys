@@ -1,8 +1,8 @@
 import { SupportedChainId } from 'constants/chains'
 
 const BLOCK_EXPLORER_PREFIXES: { [chainId: number]: string } = {
-  [SupportedChainId.ROLLUX]: 'https://explorer.rollux.com',
-  [SupportedChainId.ROLLUX_TANENBAUM]: 'https://rollux.tanenbaum.io',
+  [SupportedChainId.MODE]: 'https://explorer.rollux.com',
+  // [SupportedChainId.ROLLUX_TANENBAUM]: 'https://rollux.tanenbaum.io',
 }
 
 export enum ExplorerDataType {

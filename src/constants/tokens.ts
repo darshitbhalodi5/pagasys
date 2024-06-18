@@ -1,5 +1,5 @@
-import { Ether, NativeCurrency, Token, WETH9 } from 'sdkcore18'
 import { SupportedChainId } from 'constants/chains'
+import { Ether, NativeCurrency, Token, WETH9 } from 'sdkcore18'
 
 import { UNI_ADDRESS } from './addresses'
 
@@ -11,35 +11,35 @@ export const NATIVE_CHAIN_ID = 'NATIVE'
 export const DEFAULT_ERC20_DECIMALS = 18
 
 export const USDC_ROLLUX = new Token(
-  SupportedChainId.ROLLUX,
+  SupportedChainId.MODE,
   '0x368433CaC2A0B8D76E64681a9835502a1f2A8A30',
   6,
   'USDC',
   'USD Coin'
 )
-const USDC_ROLLUX_TANENBAUM = new Token(
-  SupportedChainId.ROLLUX_TANENBAUM,
-  '0x2Be160796F509CC4B1d76fc97494D56CF109C3f1',
-  6,
-  'USDC',
-  'USD Coin'
-)
+// const USDC_ROLLUX_TANENBAUM = new Token(
+//   SupportedChainId.ROLLUX_TANENBAUM,
+//   '0x2Be160796F509CC4B1d76fc97494D56CF109C3f1',
+//   6,
+//   'USDC',
+//   'USD Coin'
+// )
 export const DAI_ROLLUX = new Token(
-  SupportedChainId.ROLLUX,
+  SupportedChainId.MODE,
   '0x5B0aC6194499621630ddebb30c4aBE37037b30Ec',
   18,
   'DAI',
   'Dai'
 )
 export const USDT_ROLLUX = new Token(
-  SupportedChainId.ROLLUX,
+  SupportedChainId.MODE,
   '0x28c9c7Fb3fE3104d2116Af26cC8eF7905547349c',
   6,
   'USDT',
   'Tether USD'
 )
 export const WBTC_ROLLUX = new Token(
-  SupportedChainId.ROLLUX,
+  SupportedChainId.MODE,
   '0x2A4DC2e946b92AB4a1f7D62844EB237788F9056c',
   8,
   'WBTC',
@@ -47,20 +47,14 @@ export const WBTC_ROLLUX = new Token(
 ) // TODO: add WBTC to rollux
 
 export const UNI: { [chainId: number]: Token } = {
-  [SupportedChainId.ROLLUX]: new Token(
-    SupportedChainId.ROLLUX,
-    UNI_ADDRESS[SupportedChainId.ROLLUX],
-    18,
-    'PSYS',
-    'Pegasys'
-  ),
-  [SupportedChainId.ROLLUX_TANENBAUM]: new Token(
-    SupportedChainId.ROLLUX_TANENBAUM,
-    UNI_ADDRESS[SupportedChainId.ROLLUX_TANENBAUM],
-    18,
-    'PSYS',
-    'Pegasys'
-  ),
+  [SupportedChainId.MODE]: new Token(SupportedChainId.MODE, UNI_ADDRESS[SupportedChainId.MODE], 18, 'PSYS', 'Pegasys'),
+  // [SupportedChainId.ROLLUX_TANENBAUM]: new Token(
+  //   SupportedChainId.ROLLUX_TANENBAUM,
+  //   UNI_ADDRESS[SupportedChainId.ROLLUX_TANENBAUM],
+  //   18,
+  //   'PSYS',
+  //   'Pegasys'
+  // ),
 }
 
 export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } = {
@@ -105,7 +99,7 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
 
 export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in SupportedChainId]?: string } } = {
   USDC: {
-    [SupportedChainId.ROLLUX]: USDC_ROLLUX.address,
-    [SupportedChainId.ROLLUX_TANENBAUM]: USDC_ROLLUX_TANENBAUM.address,
+    [SupportedChainId.MODE]: USDC_ROLLUX.address,
+    // [SupportedChainId.ROLLUX_TANENBAUM]: USDC_ROLLUX_TANENBAUM.address,
   },
 }

@@ -6,21 +6,21 @@
 
 import { ChainId } from 'smartorderrouter18'
 
-const SUPPORTED_CHAINS = [ChainId.ROLLUX, ChainId.ROLLUX_TANENBAUM] as const
+const SUPPORTED_CHAINS = [ChainId.MODE] as const
 type SupportedChainsType = (typeof SUPPORTED_CHAINS)[number]
 
 // Because this is not explicitly derived from sdkcore18, there is a unit test to enforce conformance.
 export enum SupportedChainId {
-  ROLLUX = 570,
-  ROLLUX_TANENBAUM = 57000,
+  MODE = 919,
+  // ROLLUX_TANENBAUM = 57000,
 }
 
 export const CHAIN_IDS_TO_NAMES = {
-  [SupportedChainId.ROLLUX]: 'rollux',
-  [SupportedChainId.ROLLUX_TANENBAUM]: 'rollux_tanenbaum',
+  [SupportedChainId.MODE]: 'mode',
+  // [SupportedChainId.ROLLUX_TANENBAUM]: 'rollux_tanenbaum',
 }
 
-export type SupportedInterfaceChain = Exclude<SupportedChainsType, ChainId.ROLLUX_TANENBAUM>
+// export type SupportedInterfaceChain = Exclude<SupportedChainsType, ChainId.ROLLUX_TANENBAUM>
 
 /**
  * Array of all the supported chain IDs
@@ -33,12 +33,12 @@ export function isSupportedChain(chainId: number | null | undefined): chainId is
   return !!chainId && !!ChainId[chainId]
 }
 
-export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [SupportedChainId.ROLLUX] as const
+export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [SupportedChainId.MODE] as const
 
 /**
  * Unsupported networks for V2 pool behavior.
  */
-export const UNSUPPORTED_V2POOL_CHAIN_IDS = [SupportedChainId] as const
+// export const UNSUPPORTED_V2POOL_CHAIN_IDS = [SupportedChainId] as const
 
 /**
  * All the chain IDs that are running the Ethereum protocol.
@@ -51,7 +51,7 @@ export type SupportedL1ChainId = (typeof L1_CHAIN_IDS)[number]
  * Controls some L2 specific behavior, e.g. slippage tolerance, special UI behavior.
  * The expectation is that all of these networks have immediate transaction confirmation.
  */
-export const L2_CHAIN_IDS = [ChainId.ROLLUX, ChainId.ROLLUX_TANENBAUM] as const
+export const L2_CHAIN_IDS = [ChainId.MODE] as const
 
 export type SupportedL2ChainId = (typeof L2_CHAIN_IDS)[number]
 
@@ -62,8 +62,7 @@ export type SupportedL2ChainId = (typeof L2_CHAIN_IDS)[number]
  */
 export function getChainPriority(chainId: ChainId): number {
   switch (chainId) {
-    case ChainId.ROLLUX:
-    case ChainId.ROLLUX_TANENBAUM:
+    case ChainId.MODE:
     default:
       return 2
   }
