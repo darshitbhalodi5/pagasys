@@ -1,11 +1,10 @@
 import { Trans } from '@lingui/macro'
 import { useWeb3React } from '@web3-react/core'
-import JSBI from 'jsbi'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Plus } from 'react-feather'
 import { useLocation } from 'react-router'
 import { Text } from 'rebass'
-import { Currency, CurrencyAmount, Token } from 'sdkcore18'
+import { Currency } from 'sdkcore18'
 import styled from 'styled-components/macro'
 
 import { ButtonDropdownLight } from '../../components/Button'
@@ -14,18 +13,13 @@ import { BlueCard } from '../../components/Card'
 import { AutoColumn, ColumnCenter } from '../../components/Column'
 import CurrencyLogo from '../../components/Logo/CurrencyLogo'
 import { FindPoolTabs } from '../../components/NavigationTabs'
-import { MinimalPositionCard } from '../../components/PositionCard'
 import Row from '../../components/Row'
 import CurrencySearchModal from '../../components/SearchModal/CurrencySearchModal'
 import { SwitchLocaleLink } from '../../components/SwitchLocaleLink'
 import { nativeOnChain } from '../../constants/tokens'
 // import { PairState, useV2Pair } from '../../hooks/useV2Pairs'
-import { useTokenBalance } from '../../state/connection/hooks'
 // import { usePairAdder } from '../../state/user/hooks'
-import { StyledInternalLink } from '../../theme'
 import { ThemedText } from '../../theme'
-import { currencyId } from '../../utils/currencyId'
-import { Dots } from '../Pool/styleds'
 
 enum Fields {
   TOKEN0 = 0,
@@ -47,25 +41,25 @@ export default function PoolFinder() {
   const [currency0, setCurrency0] = useState<Currency | null>(() => (chainId ? nativeOnChain(chainId) : null))
   const [currency1, setCurrency1] = useState<Currency | null>(null)
 
-  const [pairState, pair] = useV2Pair(currency0 ?? undefined, currency1 ?? undefined)
-  const addPair = usePairAdder()
-  useEffect(() => {
-    if (pair) {
-      addPair(pair)
-    }
-  }, [pair, addPair])
+  // const [pairState, pair] = useV2Pair(currency0 ?? undefined, currency1 ?? undefined)
+  // const addPair = usePairAdder()
+  // useEffect(() => {
+  //   if (pair) {
+  //     addPair(pair)
+  //   }
+  // }, [pair, addPair])
 
-  const validPairNoLiquidity: boolean =
-    pairState === PairState.NOT_EXISTS ||
-    Boolean(
-      pairState === PairState.EXISTS &&
-        pair &&
-        JSBI.equal(pair.reserve0.quotient, JSBI.BigInt(0)) &&
-        JSBI.equal(pair.reserve1.quotient, JSBI.BigInt(0))
-    )
+  // const validPairNoLiquidity: boolean =
+  //   pairState === PairState.NOT_EXISTS ||
+  //   Boolean(
+  //     pairState === PairState.EXISTS &&
+  //       pair &&
+  //       JSBI.equal(pair.reserve0.quotient, JSBI.BigInt(0)) &&
+  //       JSBI.equal(pair.reserve1.quotient, JSBI.BigInt(0))
+  //   )
 
-  const position: CurrencyAmount<Token> | undefined = useTokenBalance(account ?? undefined, pair?.liquidityToken)
-  const hasPosition = Boolean(position && JSBI.greaterThan(position.quotient, JSBI.BigInt(0)))
+  // const position: CurrencyAmount<Token> | undefined = useTokenBalance(account ?? undefined, pair?.liquidityToken)
+  // const hasPosition = Boolean(position && JSBI.greaterThan(position.quotient, JSBI.BigInt(0)))
 
   const handleCurrencySelect = useCallback(
     (currency: Currency) => {
@@ -163,7 +157,7 @@ export default function PoolFinder() {
             )}
           </ButtonDropdownLight>
 
-          {hasPosition && (
+          {/* {hasPosition && (
             <ColumnCenter
               style={{ justifyItems: 'center', backgroundColor: '', padding: '12px 0px', borderRadius: '12px' }}
             >
@@ -176,9 +170,9 @@ export default function PoolFinder() {
                 </Text>
               </StyledInternalLink>
             </ColumnCenter>
-          )}
+          )} */}
 
-          {currency0 && currency1 ? (
+          {/* {currency0 && currency1 ? (
             pairState === PairState.EXISTS ? (
               hasPosition && pair ? (
                 <MinimalPositionCard pair={pair} border="1px solid #CED0D9" />
@@ -227,7 +221,7 @@ export default function PoolFinder() {
             ) : null
           ) : (
             prerequisiteMessage
-          )}
+          )} */}
         </AutoColumn>
 
         <CurrencySearchModal

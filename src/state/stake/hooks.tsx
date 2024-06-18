@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 import { Interface } from '@ethersproject/abi'
 import STAKING_REWARDS_ABI from '@pollum-io/pegasys-protocol/artifacts/contracts/earn/StakingRewards.sol/StakingRewards.json'
 // import { Pair } from '@pollum-io/v1-sdk'
@@ -47,16 +48,16 @@ interface StakingInfo {
   // the tokens involved in this pair
   tokens: [Token, Token]
   // the amount of token currently staked, or undefined if no account
-  stakedAmount: CurrencyAmount<Token>
+  // stakedAmount: CurrencyAmount<Token>
   // the amount of reward token earned by the active account, or undefined if no account
   earnedAmount: CurrencyAmount<Token>
   // the total amount of token staked in the contract
-  totalStakedAmount: CurrencyAmount<Token>
+  // totalStakedAmount: CurrencyAmount<Token>
   // the amount of token distributed per second to all LPs, constant
   totalRewardRate: CurrencyAmount<Token>
   // the current amount of token distributed to the active account per second.
   // equivalent to percent of total supply * reward rate
-  rewardRate: CurrencyAmount<Token>
+  // rewardRate: CurrencyAmount<Token>
   // when the period ends
   periodFinish?: Date
   // if pool is active
@@ -200,10 +201,7 @@ export function useStakingInfo(pairToFilterBy?: Pool | null): StakingInfo[] {
           tokens: info[index].tokens,
           periodFinish: periodFinishMs > 0 ? new Date(periodFinishMs) : undefined,
           earnedAmount: CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
-          rewardRate: CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(rewardRateState?.result?.[0] ?? 0)),
           totalRewardRate,
-          stakedAmount: CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(stakedAmountState?.result?.[0] ?? 0)),
-          totalStakedAmount: CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(totalStakedAmountState?.result?.[0] ?? 0)),
           getHypotheticalRewardRate,
           active,
         })

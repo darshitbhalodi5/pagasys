@@ -254,20 +254,20 @@ export default function Pool() {
                 <Trans>Pools</Trans>
               </ThemedText.LargeHeader>
               <ButtonRow>
-                {showV2Features && (
-                  <PoolMenu
-                    menuItems={menuItems}
-                    flyoutAlignment={FlyoutAlignment.LEFT}
-                    ToggleUI={(props: any) => (
-                      <MoreOptionsButton {...props}>
-                        <MoreOptionsText>
-                          <Trans>More</Trans>
-                          <ChevronDown size={15} />
-                        </MoreOptionsText>
-                      </MoreOptionsButton>
-                    )}
-                  />
-                )}
+                (
+                <PoolMenu
+                  menuItems={menuItems}
+                  flyoutAlignment={FlyoutAlignment.LEFT}
+                  ToggleUI={(props: any) => (
+                    <MoreOptionsButton {...props}>
+                      <MoreOptionsText>
+                        <Trans>More</Trans>
+                        <ChevronDown size={15} />
+                      </MoreOptionsText>
+                    </MoreOptionsButton>
+                  )}
+                />
+                )
                 <ResponsiveButtonPrimary data-cy="join-pool-button" id="join-pool-button" as={Link} to="/add/SYS">
                   + <Trans>New Position</Trans>
                 </ResponsiveButtonPrimary>

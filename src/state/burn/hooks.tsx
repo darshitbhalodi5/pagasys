@@ -6,6 +6,7 @@ import tryParseCurrencyAmount from 'lib/utils/tryParseCurrencyAmount'
 import { ReactNode, useCallback } from 'react'
 import { Currency, CurrencyAmount, Percent, Token } from 'sdkcore18'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
+import { Pool } from 'v3sdk18'
 
 import { useTotalSupply } from '../../hooks/useTotalSupply'
 // import { useV2Pair } from '../../hooks/useV2Pairs'
@@ -21,7 +22,7 @@ export function useDerivedBurnInfo(
   currencyA: Currency | undefined,
   currencyB: Currency | undefined
 ): {
-  pair?: Pair | null
+  pair?: Pool | null
   parsedAmounts: {
     [Field.LIQUIDITY_PERCENT]: Percent
     [Field.LIQUIDITY]?: CurrencyAmount<Token>
@@ -149,4 +150,7 @@ export function useBurnActionHandlers(): {
   return {
     onUserInput,
   }
+}
+function useV2Pair(currencyA: Currency | undefined, currencyB: Currency | undefined): [any, any] {
+  throw new Error('Function not implemented.')
 }

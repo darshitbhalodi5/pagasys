@@ -19,7 +19,7 @@ export function transformSwapRouteToGetQuoteResult(
     blockNumber,
   }: SwapRoute
 ): GetQuoteResult {
-  const routeResponse: Array<V3PoolInRoute[]> = []
+  const routeResponse: V3PoolInRoute[] = []
 
   for (const subRoute of route) {
     const { amount, quote, tokenPath } = subRoute

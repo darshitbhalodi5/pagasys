@@ -1,6 +1,6 @@
 import { Navigate, useParams } from 'react-router-dom'
 
-import AddLiquidityV2 from './index'
+// import AddLiquidityV2 from './index'
 
 export function RedirectDuplicateTokenIdsV2() {
   const { currencyIdA, currencyIdB } = useParams<{ currencyIdA: string; currencyIdB: string }>()
@@ -9,5 +9,5 @@ export function RedirectDuplicateTokenIdsV2() {
     return <Navigate to={`/add/v2/${currencyIdA}`} replace />
   }
 
-  return <AddLiquidityV2 />
+  return
 }

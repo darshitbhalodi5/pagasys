@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 import { Protocol } from 'routersdk18'
 import { Currency, CurrencyAmount, Token, TradeType } from 'sdkcore18'
 // import { Pair, Route as V2Route } from '@pollum-io/v1-sdk'
@@ -84,7 +85,17 @@ export function transformRoutesToTrade<TTradeType extends TradeType>(
           (r: { routev3: null }): r is (typeof route)[0] & { routev3: NonNullable<(typeof route)[0]['routev3']> } =>
             r.routev3 !== null
         )
-        .map(({ routev3, inputAmount, outputAmount }) => ({ routev3, inputAmount, outputAmount })) ?? [],
+        .map(
+          ({
+            routev3,
+            inputAmount,
+            outputAmount,
+          }: {
+            routev3: V3Route<Currency, Currency> | null
+            inputAmount: CurrencyAmount<Currency>
+            outputAmount: CurrencyAmount<Currency>
+          }) => ({ routev3, inputAmount, outputAmount })
+        ) ?? [],
     // mixedRoutes:
     //   route
     //     ?.filter(
